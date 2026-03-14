@@ -46,6 +46,17 @@ Input: transaction feature list
 Output:
 
 
+## Run API locally
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Start API:
+
+uvicorn app.main:app --reload
+
+
 ## Model Performance
 
 Fraud detection model results:
