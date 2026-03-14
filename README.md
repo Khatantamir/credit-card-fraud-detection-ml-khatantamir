@@ -1,8 +1,23 @@
 # Credit Card Fraud Detection ML System
 
-This project builds a machine learning system that detects fraudulent credit card transactions.
+This project builds a machine learning system to detect fraudulent credit card transactions.
 
-The system trains a fraud detection model using the Credit Card Fraud Detection dataset and exposes the model through a FastAPI endpoint for predictions.
+The system trains a fraud detection model using a real-world dataset and exposes the model through a FastAPI API endpoint for predictions.
+
+---
+
+# Project Overview
+
+Credit card fraud is a major financial problem. Machine learning can help detect suspicious transactions automatically.
+
+This project demonstrates a full **end-to-end machine learning workflow**:
+
+1. Data loading
+2. Exploratory Data Analysis (EDA)
+3. Model training
+4. Model evaluation
+5. Model saving
+6. API deployment
 
 ---
 
@@ -10,17 +25,19 @@ The system trains a fraud detection model using the Credit Card Fraud Detection 
 
 Credit Card Fraud Detection Dataset
 
+Dataset characteristics:
+
 * Total transactions: **284,807**
 * Fraud transactions: **492**
 * Features: **V1 – V28, Time, Amount**
 * Target variable: **Class**
 
-Class values:
+Class labels:
 
 * **0 → Normal transaction**
 * **1 → Fraud transaction**
 
-This dataset is highly imbalanced, which makes fraud detection a challenging machine learning problem.
+The dataset is **highly imbalanced**, which makes fraud detection a challenging machine learning problem.
 
 ---
 
@@ -78,7 +95,7 @@ Analysis included:
 
 Key observation:
 
-Fraud cases represent only **~0.17%** of the dataset, which creates a severe class imbalance.
+Fraud cases represent only **~0.17% of the dataset**, creating a severe class imbalance.
 
 ---
 
@@ -88,17 +105,17 @@ Model used:
 
 **Random Forest Classifier**
 
-Steps performed:
+Training pipeline:
 
 1. Load dataset
 2. Separate features and target
-3. Train / Test split (80 / 20)
+3. Train/Test split (80/20)
 4. Train Random Forest model
 5. Generate predictions
-6. Evaluate performance
-7. Save model using Joblib
+6. Evaluate model performance
+7. Save trained model using Joblib
 
-Training script location:
+Training script:
 
 ```
 src/train.py
@@ -123,19 +140,19 @@ These results show strong performance in detecting fraudulent transactions.
 
 # Confusion Matrix
 
-The confusion matrix shows how many fraud and normal transactions were correctly or incorrectly classified.
+The confusion matrix shows how many fraud and normal transactions were correctly classified.
 
 Key insight:
 
-The model successfully identifies most fraudulent transactions while keeping false positives very low.
+The model successfully detects most fraudulent transactions while maintaining very low false positives.
 
 ---
 
 # API (FastAPI)
 
-The trained model is served using **FastAPI**.
+The trained model is deployed using **FastAPI**.
 
-Main endpoint:
+API endpoint:
 
 ```
 POST /predict
@@ -173,7 +190,7 @@ Open in browser:
 http://127.0.0.1:8000/docs
 ```
 
-FastAPI will show interactive API documentation.
+FastAPI automatically generates interactive API documentation.
 
 ---
 
@@ -236,8 +253,8 @@ Exploratory Data Analysis
 Handling Imbalanced Datasets
 Model Evaluation (Precision, Recall, F1, ROC AUC)
 Model Serialization with Joblib
-Building a REST API with FastAPI
-End-to-End ML Project Structure
+Building REST APIs using FastAPI
+End-to-End Machine Learning Project Structure
 
 ---
 
